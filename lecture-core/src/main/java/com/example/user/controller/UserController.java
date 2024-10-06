@@ -3,7 +3,7 @@ package com.example.user.controller;
 import com.example.user.controller.dto.LoginRequest;
 import com.example.user.controller.dto.UserResponse;
 import com.example.user.dto.JoinRequest;
-import com.example.user.service.UserService;
+import com.example.user.manager.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

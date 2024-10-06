@@ -1,4 +1,4 @@
-package com.example.user.service;
+package com.example.user.manager;
 
 import com.example.user.domain.User;
 import com.example.user.dto.JoinRequest;

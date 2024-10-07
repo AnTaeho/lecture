@@ -1,4 +1,5 @@
 rootProject.name = 'lecture'
 include 'lecture-core'
 include 'lecture-domain'
+include 'kafka-consumer'
 

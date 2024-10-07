@@ -9,6 +9,7 @@ import com.example.ticket.manager.TicketQueryManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +24,7 @@ public class TicketService {
         return new TicketResponse(tickerCommandManager.createTicket(ticketRequest).getId());
     }
 
+    @Transactional
     public void issueTicket(Long ticketId, String email) {
         Long add = redisTicketService.addKeyToSet(ticketId + ":" + email);
         if (add != 1L) {

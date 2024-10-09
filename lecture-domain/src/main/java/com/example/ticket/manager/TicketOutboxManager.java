@@ -2,10 +2,14 @@ package com.example.ticket.manager;
 
 import com.example.ticket.domain.TicketOutbox;
 import com.example.ticket.repository.TicketOutboxRepository;
+import java.time.LocalDateTime;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@Transactional
 @RequiredArgsConstructor
 public class TicketOutboxManager {
 
@@ -15,4 +19,15 @@ public class TicketOutboxManager {
         ticketOutboxRepository.save(ticketOutbox);
     }
 
+    public List<TicketOutbox> findAllPublished() {
+        return ticketOutboxRepository.findAllPublished();
+    }
+
+    public List<Long> findOutboxOneHourAgo(LocalDateTime oneHourAgo) {
+        return ticketOutboxRepository.findOutboxOneHourAgo(oneHourAgo);
+    }
+
+    public void deleteAllIn(List<Long> outboxOneHourAgo) {
+        ticketOutboxRepository.deleteAllIn(outboxOneHourAgo);
+    }
 }

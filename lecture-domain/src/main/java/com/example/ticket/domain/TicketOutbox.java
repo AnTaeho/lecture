@@ -31,4 +31,8 @@ public class TicketOutbox {
         this.email = email;
         this.status = OutboxStatus.PUBLISHED;
     }
+
+    public void done() {
+        this.status = OutboxStatus.DONE;
+    }
 }

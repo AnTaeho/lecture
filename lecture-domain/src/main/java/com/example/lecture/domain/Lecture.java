@@ -2,6 +2,8 @@ package com.example.lecture.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,11 +26,15 @@ public class Lecture {
     private int totalSize;
     private int price;
 
+    @Enumerated(EnumType.STRING)
+    private LectureStatus lectureStatus;
+
     public Lecture(String title, String description, String lecturer, int totalSize, int price) {
         this.title = title;
         this.description = description;
         this.lecturer = lecturer;
         this.totalSize = totalSize;
         this.price = price;
+        this.lectureStatus = LectureStatus.AVAILABLE;
     }
 }
